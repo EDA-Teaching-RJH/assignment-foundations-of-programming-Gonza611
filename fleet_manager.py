@@ -55,6 +55,19 @@ def calculate_payroll(ranks):
 
     return total
 
+def search_crew(names, ranks, divs, ids):
+    term = input("Enter name to search: ").lower()
+
+    found = False
+
+    for i in range(len(names)):
+        if term in names[i].lower():
+            print(ids[i], "-", names[i], "-", ranks[i], "-", divs[i])
+            found = True
+
+    if not found:
+        print("No crew member found.")
+
 def main():
     names, ranks, divs, ids = init_database()
 
@@ -73,10 +86,14 @@ def main():
         elif choice == "8":
             total = count_officers(ranks)
             print("Number of senior officers:", total)
-            
+
         elif choice == "7":
             total = calculate_payroll(ranks)
             print("Total crew payroll:", total, "credits")
+
+        elif choice == "5":
+            search_crew(names, ranks, divs, ids)
+
 
 
 
