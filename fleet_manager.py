@@ -124,7 +124,7 @@ def remove_member(names, ranks, divs, ids):
     ids.pop(index)
 
     print("Crew member removed successfully.")
-
+    
 def main():
     names, ranks, divs, ids = init_database()
 
@@ -159,6 +159,10 @@ def main():
 
         elif choice == "2":
             remove_member(names, ranks, divs, ids)
+
+        elif choice == "2":
+            remove_member(names, ranks, divs, ids)
+
 
 if __name__ == "__main__":
     main()
