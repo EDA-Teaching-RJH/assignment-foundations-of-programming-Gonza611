@@ -68,6 +68,19 @@ def search_crew(names, ranks, divs, ids):
     if not found:
         print("No crew member found.")
 
+def filter_by_division(names, divs):
+    division = input("Enter division (Command, Operations, Security, Sciences): ")
+
+    found = False
+
+    for i in range(len(names)):
+        if divs[i] == division:
+            print(names[i], "-", divs[i])
+            found = True
+
+    if not found:
+        print("No crew members found in that division.")
+
 def main():
     names, ranks, divs, ids = init_database()
 
@@ -93,6 +106,10 @@ def main():
 
         elif choice == "5":
             search_crew(names, ranks, divs, ids)
+
+        elif choice == "6":
+            filter_by_division(names, divs)
+
 
 
 
