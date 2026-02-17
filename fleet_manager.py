@@ -124,7 +124,31 @@ def remove_member(names, ranks, divs, ids):
     ids.pop(index)
 
     print("Crew member removed successfully.")
-    
+
+def update_rank(names, ranks, ids):
+    try:
+        update_id = int(input("Enter ID to update rank: "))
+    except ValueError:
+        print("Invalid ID. Please enter a number.")
+        return
+
+    if update_id not in ids:
+        print("ID not found.")
+        return
+
+    valid_ranks = ["Captain", "Commander", "Lt. Commander", "Lieutenant", "Ensign"]
+
+    new_rank = input("Enter new rank: ")
+
+    if new_rank not in valid_ranks:
+        print("Invalid rank.")
+        return
+
+    index = ids.index(update_id)
+    ranks[index] = new_rank
+
+    print("Rank updated successfully.")
+   
 def main():
     names, ranks, divs, ids = init_database()
 
@@ -162,6 +186,10 @@ def main():
 
         elif choice == "2":
             remove_member(names, ranks, divs, ids)
+
+        elif choice == "3":
+            update_rank(names, ranks, ids)
+
 
 
 if __name__ == "__main__":
