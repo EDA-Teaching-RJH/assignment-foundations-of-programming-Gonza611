@@ -81,6 +81,30 @@ def filter_by_division(names, divs):
     if not found:
         print("No crew members found in that division.")
 
+def add_member(names, ranks, divs, ids):
+    new_id = int(input("Enter new ID: "))
+
+    if new_id in ids:
+        print("ID already exists.")
+        return
+
+    valid_ranks = ["Captain", "Commander", "Lt. Commander", "Lieutenant", "Ensign"]
+
+    new_rank = input("Enter Rank: ")
+    if new_rank not in valid_ranks:
+        print("Invalid rank.")
+        return
+
+    new_name = input("Enter Name: ")
+    new_div = input("Enter Division: ")
+
+    names.append(new_name)
+    ranks.append(new_rank)
+    divs.append(new_div)
+    ids.append(new_id)
+
+    print("Crew member added successfully.")
+
 def main():
     names, ranks, divs, ids = init_database()
 
@@ -109,6 +133,9 @@ def main():
 
         elif choice == "6":
             filter_by_division(names, divs)
+
+        elif choice == "1":
+            add_member(names, ranks, divs, ids)
 
 
 
