@@ -35,6 +35,9 @@ def run_system_monolith():
             new_name = input("Name: ")
             new_rank = input("Rank: ")
             new_div = input("Division: ")
+            n.append(new_name)
+            r.append(new_rank)
+            d.append(new_div)
             
            
             n.append(new_name)
