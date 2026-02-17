@@ -56,7 +56,7 @@ def run_system_monolith():
             print("Analyzing...")
             count = 0
             
-            fork rank in r:
+            for rank in r:
             if rank == "Captain" or rank == "Commander": 
                     count = count + 1
             print("High ranking officers: " + str(count)) 
