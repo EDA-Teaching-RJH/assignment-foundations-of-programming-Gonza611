@@ -35,7 +35,7 @@ def run_system_monolith():
             new_name = input("Name: ")
             new_rank = input("Rank: ")
             new_div = input("Division: ")
-            
+
             n.append(new_name)
             r.append(new_rank)
             d.append(new_div)
@@ -57,7 +57,7 @@ def run_system_monolith():
             count = 0
             
             for rank in r:
-                if rank == "Captain" or "Commander": 
+                if rank == "Captain" or rank "Commander": 
                     count = count + 1
             print("High ranking officers: " + str(count)) 
             
