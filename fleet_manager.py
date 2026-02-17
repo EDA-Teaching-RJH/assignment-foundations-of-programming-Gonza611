@@ -21,6 +21,40 @@ def display_menu(user):
 
     return input("Select option: ")
 
+def display_roster(names, ranks, divs, ids):
+    print("\n--- Crew Roster ---")
+    print("ID\tName\t\t\tRank\t\tDivision")
+    print("-" * 60)
+
+    for i in range(len(names)):
+        print(ids[i], "\t", names[i], "\t", ranks[i], "\t", divs[i])
+
+def count_officers(ranks):
+    count = 0
+
+    for rank in ranks:
+        if rank == "Captain" or rank == "Commander":
+            count += 1
+
+    return count
+
+def calculate_payroll(ranks):
+    total = 0
+
+    for rank in ranks:
+        if rank == "Captain":
+            total += 1000
+        elif rank == "Commander":
+            total += 800
+        elif rank == "Lt. Commander":
+            total += 600
+        elif rank == "Lieutenant":
+            total += 400
+        elif rank == "Ensign":
+            total += 200
+
+    return total
+
 def main():
     names, ranks, divs, ids = init_database()
 
@@ -32,6 +66,20 @@ def main():
         if choice == "9":
             print("Exiting system.")
             break
+
+        elif choice == "4":
+            display_roster(names, ranks, divs, ids)
+
+        elif choice == "8":
+            total = count_officers(ranks)
+            print("Number of senior officers:", total)
+            
+        elif choice == "7":
+            total = calculate_payroll(ranks)
+            print("Total crew payroll:", total, "credits")
+
+
+
 
 if __name__ == "__main__":
     main()
