@@ -105,6 +105,26 @@ def add_member(names, ranks, divs, ids):
 
     print("Crew member added successfully.")
 
+def remove_member(names, ranks, divs, ids):
+    try:
+        remove_id = int(input("Enter ID to remove: "))
+    except ValueError:
+        print("Invalid ID. Please enter a number.")
+        return
+
+    if remove_id not in ids:
+        print("ID not found.")
+        return
+
+    index = ids.index(remove_id)
+
+    names.pop(index)
+    ranks.pop(index)
+    divs.pop(index)
+    ids.pop(index)
+
+    print("Crew member removed successfully.")
+
 def main():
     names, ranks, divs, ids = init_database()
 
@@ -137,10 +157,8 @@ def main():
         elif choice == "1":
             add_member(names, ranks, divs, ids)
 
-
-
-
-
+        elif choice == "2":
+            remove_member(names, ranks, divs, ids)
 
 if __name__ == "__main__":
     main()
